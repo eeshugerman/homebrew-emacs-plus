@@ -154,7 +154,7 @@ By default =emacs-plus@28= uses the following features.
 | =--with-imagemagick=      | build with =imagemagick= support                                             |
 | =--HEAD=                  | build from =emacs-28= branch                                                 |
 | =--with-native-comp=      | build with native compilation aka [[#gccemacs][→ gccemacs]]                                 |
-|                           |                                                                              |
+| =--with-poll=             | build with poll() instead of select() to enable more file descriptors        |
 
 ** Emacs 27
 

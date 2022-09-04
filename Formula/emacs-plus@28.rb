@@ -26,6 +26,7 @@ class EmacsPlusAT28 < EmacsBase
   option "with-xwidgets", "Experimental: build with xwidgets support"
   option "with-no-frame-refocus", "Disables frame re-focus (ie. closing one frame does not refocus another one)"
   option "with-native-comp", "Build with native compilation"
+  option "with-poll", "Experimental: use poll() instead of select() to support > 1024 file descriptors`"
 
   #
   # Dependencies
@@ -87,6 +88,7 @@ class EmacsPlusAT28 < EmacsBase
   local_patch "fix-window-role", sha: "1f8423ea7e6e66c9ac6dd8e37b119972daa1264de00172a24a79a710efcb8130"
   local_patch "system-appearance", sha: "d6ee159839b38b6af539d7b9bdff231263e451c1fd42eec0d125318c9db8cd92"
   local_patch "fix-MAC_LIBS-inference-on-Intel", sha: "ed628817456c8cdea25267ff48800edebcfd8980dae77b1b957362a54e8edb26" if build.with? "native-comp"
+  local_patch "poll", sha: "ce3a79b2e3083a865a6373b4c60d5e7fa987bc6ac140c9fd4e5a3018468fe05c"
 
   #
   # Initialize
@@ -146,6 +148,7 @@ class EmacsPlusAT28 < EmacsBase
     args << "--with-rsvg"
     args << "--without-pop" if build.with? "mailutils"
     args << "--with-xwidgets" if build.with? "xwidgets"
+    args << "--with-poll" if build.with? "poll"
 
     ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
     system "./autogen.sh"
