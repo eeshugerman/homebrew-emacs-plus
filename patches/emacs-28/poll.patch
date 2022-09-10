@@ -47,26 +47,6 @@ index 7c98522448..6cf70873cc 100644
  "])
  
  if test -n "${EMACSDATA}"; then
-diff --git a/etc/NEWS b/etc/NEWS
-index aeddb07170..9fe6aa26f8 100644
---- a/etc/NEWS
-+++ b/etc/NEWS
-@@ -42,7 +42,14 @@ therefore to be recorded in the executable as part of the build.
- 
- * Changes in Emacs 28.2
- 
--This is a bug-fix release with no new features.
-+** Emacs can now use 'poll' and larger file descriptor sets.
-+There is experimental support for using 'poll' instead of 'select' to
-+check file descriptor statuses, which can be requested by using the
-+'--with-poll' option to the 'configure' script.  As part of this
-+feature, the maximum number of open files supported has been increased
-+to 10xFD_SETSIZE (which is typically 1024).  Note that there may be
-+ulimit or kernel limits that still restrict the number of simultaneous
-+open files.  This feature is not supported on MS-Windows.
- 
- 
- * Editing Changes in Emacs 28.2
 diff --git a/src/nsterm.m b/src/nsterm.m
 index 1643ba5427..cc6e20850a 100644
 --- a/src/nsterm.m

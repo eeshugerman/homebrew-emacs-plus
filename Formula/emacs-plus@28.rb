@@ -88,7 +88,7 @@ class EmacsPlusAT28 < EmacsBase
   local_patch "fix-window-role", sha: "1f8423ea7e6e66c9ac6dd8e37b119972daa1264de00172a24a79a710efcb8130"
   local_patch "system-appearance", sha: "d6ee159839b38b6af539d7b9bdff231263e451c1fd42eec0d125318c9db8cd92"
   local_patch "fix-MAC_LIBS-inference-on-Intel", sha: "ed628817456c8cdea25267ff48800edebcfd8980dae77b1b957362a54e8edb26" if build.with? "native-comp"
-  local_patch "poll", sha: "d96ecafa094aec87291a676d42b98bb0c1e536cd69475092b51779d132fed84f" if build.with? "poll"
+  local_patch "poll", sha: "61a50169b4f7aac3f10e1564b6c72d9aa3fd53b62ef26bbfd09adab69e5c7e27" if build.with? "poll"
 
   #
   # Initialize
